@@ -1,0 +1,35 @@
+{
+  "name": "iframe2image",
+  "description": "Convert an iframe to an image",
+  "version": "0.1.0",
+  "homepage": "https://github.com/twolfson/iframe2image",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/twolfson/iframe2image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twolfson/iframe2image/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/twolfson/iframe2image/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/iframe2image",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.3.12"
+  },
+  "keywords": []
+}
