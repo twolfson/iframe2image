@@ -11,12 +11,16 @@
     <iframe id="dom" src="inner.html"></iframe>
     <canvas id="test"></canvas>
     <script>
-      var canvas = document.getElementById("test");
-      var context = canvas.getContext('2d');
+      var $dom = document.getElementById('dom');
+      $dom.onload = function () {
+        var canvas = document.getElementById("test");
+        var context = canvas.getContext('2d');
 
-      domvas.toImage(document.getElementById("dom"), function() {
-        context.drawImage(this, 20, 20);
-      });
+        var $domBody = $dom.contentWindow.document.body;
+        domvas.toImage($domBody, function() {
+          context.drawImage(this, 20, 20);
+        });
+      };
     </script>
   </body>
 
