@@ -13,13 +13,13 @@
 
   <body>
     <script src="domvas.js"></script>
-    <iframe id="dom" src="inner.html" width="500" height="1000"></iframe>
+    <iframe id="dom" src="inner.html" width="500" height="600"></iframe>
     <canvas id="test"></canvas>
     <script>
       // Set up the canvas dimensions
       var $canvas = document.getElementById('test');
       $canvas.width = 500;
-      $canvas.height = 1000;
+      $canvas.height = 600;
 
       // Grab the canvas
       var $dom = document.getElementById('dom');
@@ -31,8 +31,8 @@
 
         domvas.toImage($domBody, function () {
           var img = this;
-          context.drawImage(this, 0, 0);
-        }, 500, 1000);
+          context.drawImage(img, 0, 0, 250, 300);
+        }, 500, 600);
       };
     </script>
 
