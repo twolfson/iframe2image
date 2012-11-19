@@ -3,6 +3,9 @@
 Convert an iframe to an image
 
 ## Getting Started
+### On the server
+Install the module with: `npm install iframe2image`. This is only practical with a tool like [browserify](https://github.com/substack/node-browserify).
+
 ### In the browser
 Download the [production version][min] or the [development version][max].
 
