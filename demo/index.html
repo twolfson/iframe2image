@@ -13,7 +13,7 @@
 
   <body>
     <script src="domvas.js"></script>
-    <iframe id="dom" src="inner.html" width="500" height="600"></iframe>
+    <iframe id="dom" src="inner.html"></iframe>
     <canvas id="test"></canvas>
     <script>
       // Set up the canvas dimensions
@@ -29,10 +29,17 @@
 
         var $domBody = $dom.contentWindow.document.body;
 
+        // TODO: Cross-browser this (even though domvas uses exactly this)
+        // TODO: Allow for specification of iframe dimension, body dimensions, or custom
+        var domStyle = getComputedStyle($dom),
+            domHeight = parseInt(domStyle.height, '10'),
+            domWidth = parseInt(domStyle.width, '10');
+
         domvas.toImage($domBody, function () {
           var img = this;
-          context.drawImage(img, 0, 0, 250, 300);
-        }, 500, 600);
+          context.drawImage(img, 0, 0);
+          // context.drawImage(img, 0, 0, 250, 300);
+        }, domWidth, domHeight);
       };
     </script>
 
