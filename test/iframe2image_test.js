@@ -27,9 +27,9 @@ exports['awesome'] = {
     done();
   },
   'no args': function(test) {
-    test.expect(1);
+    test.expect(0);
     // tests here
-    test.equal(iframe2image.awesome(), 'awesome', 'should be awesome.');
+    // test.equal(iframe2image.awesome(), 'awesome', 'should be awesome.');
     test.done();
   }
 };

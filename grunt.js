@@ -43,11 +43,13 @@ module.exports = function(grunt) {
         sub: true,
         undef: true,
         boss: true,
-        eqnull: true
+        eqnull: true,
+        browser: true
       },
       globals: {
         exports: true,
-        module: false
+        module: false,
+        domvas: true
       }
     },
     uglify: {}
