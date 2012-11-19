@@ -13,33 +13,27 @@
 
   <body>
     <script src="domvas.js"></script>
-    <iframe id="dom" src="inner.html"></iframe>
-    <canvas id="test"></canvas>
+    <script src="../lib/iframe2image.js"></script>
+    <iframe id="inner" src="inner.html"></iframe>
+    <canvas id="canvas"></canvas>
     <script>
       // Set up the canvas dimensions
-      var $canvas = document.getElementById('test');
-      $canvas.width = 500;
-      $canvas.height = 600;
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+      canvas.width = 500;
+      canvas.height = 600;
 
-      // Grab the canvas
-      var $dom = document.getElementById('dom');
-      $dom.onload = function () {
-        var canvas = document.getElementById("test");
-        var context = canvas.getContext('2d');
+      // Grab the iframe
+      var inner = document.getElementById('inner');
 
-        var $domBody = $dom.contentWindow.document.body;
+      // Get the image
+      iframe2image(inner, function (err, img) {
+        // If there is an error, log it
+        if (err) { return console.error(err); }
 
-        // TODO: Cross-browser this (even though domvas uses exactly this)
-        // TODO: Allow for specification of iframe dimension, body dimensions, or custom
-        var domStyle = getComputedStyle($dom),
-            domHeight = parseInt(domStyle.height, '10'),
-            domWidth = parseInt(domStyle.width, '10');
-
-        domvas.toImage($domBody, function (img) {
-          context.drawImage(img, 0, 0);
-          // context.drawImage(img, 0, 0, 250, 300);
-        }, domWidth, domHeight);
-      };
+        // Otherwise, add the image to the canvas
+        context.drawImage(img, 0, 0);
+      });
     </script>
 
     <script src="https://raw.github.com/twolfson/File-Watcher/master/src/watcher.js"></script>
