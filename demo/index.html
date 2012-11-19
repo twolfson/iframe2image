@@ -13,18 +13,26 @@
 
   <body>
     <script src="domvas.js"></script>
-    <iframe id="dom" src="inner.html"></iframe>
+    <iframe id="dom" src="inner.html" width="500" height="1000"></iframe>
     <canvas id="test"></canvas>
     <script>
+      // Set up the canvas dimensions
+      var $canvas = document.getElementById('test');
+      $canvas.width = 500;
+      $canvas.height = 1000;
+
+      // Grab the canvas
       var $dom = document.getElementById('dom');
       $dom.onload = function () {
         var canvas = document.getElementById("test");
         var context = canvas.getContext('2d');
 
         var $domBody = $dom.contentWindow.document.body;
-        domvas.toImage($domBody, function() {
+
+        domvas.toImage($domBody, function () {
+          var img = this;
           context.drawImage(this, 0, 0);
-        }, 200, 200);
+        }, 500, 1000);
       };
     </script>
 

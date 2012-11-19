@@ -43,7 +43,6 @@
   }
 
   window.domvas = {
-
     toImage: function(origElem, callback, width, height, left, top) {
 
       left = (left || 0);
