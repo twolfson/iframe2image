@@ -14,12 +14,20 @@ module.exports = function(grunt) {
       dist: {
         src: ['<banner:meta.banner>', '<file_strip_banner:lib/<%= pkg.name %>.js>'],
         dest: 'dist/<%= pkg.name %>.js'
+      },
+      distWithDomvas: {
+        src: ['<banner:meta.banner>', 'lib/domvas.js', '<file_strip_banner:lib/<%= pkg.name %>.js>'],
+        dest: 'dist/<%= pkg.name %>.withdomvas.js'
       }
     },
     min: {
       dist: {
         src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
         dest: 'dist/<%= pkg.name %>.min.js'
+      },
+      distWithDomvas: {
+        src: ['<banner:meta.banner>', '<config:concat.distWithDomvas.dest>'],
+        dest: 'dist/<%= pkg.name %>.withdomvas.min.js'
       }
     },
     test: {
