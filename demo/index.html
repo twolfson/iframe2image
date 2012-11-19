@@ -4,6 +4,11 @@
   <head lang="en">
     <meta charset="utf-8">
     <title>Custom Plunker</title>
+    <style>
+      body {
+        background: #BADA55;
+      }
+    </style>
   </head>
 
   <body>
@@ -18,9 +23,22 @@
 
         var $domBody = $dom.contentWindow.document.body;
         domvas.toImage($domBody, function() {
-          context.drawImage(this, 20, 20);
-        });
+          context.drawImage(this, 0, 0);
+        }, 200, 200);
       };
+    </script>
+
+    <script src="https://raw.github.com/twolfson/File-Watcher/master/src/watcher.js"></script>
+    <script src="https://raw.github.com/twolfson/Resource-Collector/master/src/collector.js"></script>
+    <script>
+        (function () {
+           var watcher = new FileWatcher(),
+               resources = ResourceCollector.collect();
+           watcher.addListener(function () {
+             location.reload();
+           });
+           watcher.watch(resources);
+        }());
     </script>
   </body>
 
