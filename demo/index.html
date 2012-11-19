@@ -35,8 +35,7 @@
             domHeight = parseInt(domStyle.height, '10'),
             domWidth = parseInt(domStyle.width, '10');
 
-        domvas.toImage($domBody, function () {
-          var img = this;
+        domvas.toImage($domBody, function (img) {
           context.drawImage(img, 0, 0);
           // context.drawImage(img, 0, 0, 250, 300);
         }, domWidth, domHeight);
