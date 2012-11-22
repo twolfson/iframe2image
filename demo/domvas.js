@@ -63,6 +63,7 @@ console.log(serialized);
 
 serialized = serialized.replace(/(style=.*) width:[ \d]+px;/, function (_, style) {
   console.log(style);
+  style = style + ' padding: 8px;';
   return style;
 });
 
