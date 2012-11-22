@@ -217,7 +217,7 @@ serialized = serialized.replace(/(style=.*) width:[ \d]+px;/, function (_, style
 serialized = '\
 <div xmlns="http://www.w3.org/1999/xhtml">\
 <body style="background: none repeat scroll 0% 0% rgb(255, 239, 213); margin: 8px;">\
-  <div style="height: 500px; margin: 8px;" id="dom">\
+  <div style="height: 500px; margin: 8px; background: rgb(0, 0, 255); border-collapse: separate; border-spacing: 0px; border-color: rgb(0, 0, 0); border-style: none;" id="dom">\
     Hello World!\
   </div>\
 </body>\
