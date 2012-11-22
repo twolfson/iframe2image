@@ -59,7 +59,7 @@
 
       // // serialize the DOM node to a String
       var serialized = new XMLSerializer().serializeToString(elem);
-// console.log(serialized);
+console.log(serialized);
 
 // Trim off width
 serialized = serialized.replace(/(style=.*) width:[ \d]+px;/, function (_, style) {
@@ -239,9 +239,12 @@ serialized = serialized.replace(/(style=.*) width:[ \d]+px;/, function (_, style
 
       // when loaded, fire onload callback with actual image node
       img.onload = function() {
-        if(callback) {
-          callback.call(this, this);
-        }
+        var img = this;
+        // setTimeout(function () {
+          if(callback) {
+            callback.call(img, img);
+          }
+        // }, 1000);
       };
 
     }
