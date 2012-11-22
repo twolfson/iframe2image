@@ -18,6 +18,10 @@
     <iframe id="inner" src="twolfson.html"></iframe>
     <canvas id="canvas"></canvas>
     <script>
+      // HERP DERP DUH: Issues from domvas.js say it hates images
+      // TODO: Look into svg + images -- I think they are foreign links or something?
+      // TODO: Or maybe even as data pngs =3
+
       // Set up the canvas dimensions
       var canvas = document.getElementById('canvas'),
           context = canvas.getContext('2d');
