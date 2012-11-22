@@ -21,11 +21,17 @@
       // Set up the canvas dimensions
       var canvas = document.getElementById('canvas'),
           context = canvas.getContext('2d');
-      canvas.width = 500;
-      canvas.height = 600;
 
       // Grab the iframe
       var inner = document.getElementById('inner');
+
+      // Set up common heights
+      var commonWidth = 900,
+          commonHeight = 300;
+      canvas.width = commonWidth;
+      canvas.height = commonHeight;
+      inner.width = commonWidth;
+      inner.height = commonHeight;
 
       // Get the image
       iframe2image(inner, function (err, img) {
