@@ -67,7 +67,7 @@
 // });
 
 serialized = serialized.replace(/(style="[^"]+")/, function (_, style) {
-  console.log(style);
+  // console.log(style);
   style = [
     'style="',
     'background: none repeat scroll 0% 0% rgb(255, 239, 213);',
@@ -123,7 +123,7 @@ serialized = serialized.replace(/(style="[^"]+")/, function (_, style) {
     'vertical-align: baseline;',
     'visibility: visible;',
     'white-space: normal;',
-    'width: 271px;',
+    // 'width: 271px;',
     'word-spacing: 0px;',
     'z-index: auto;',
     'clip-path: none;',
