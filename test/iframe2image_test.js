@@ -31,5 +31,9 @@ exports['awesome'] = {
     // tests here
     // test.equal(iframe2image.awesome(), 'awesome', 'should be awesome.');
     test.done();
+
+    // TODO: Test an image is rendered
+    // TODO: Test body style
+    // TODO: Test background sprites work
   }
 };
