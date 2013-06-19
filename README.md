@@ -1,4 +1,4 @@
-# iframe2image
+# iframe2image [![Donate on Gittip](http://badgr.co/gittip/twolfson.png)](https://www.gittip.com/twolfson/)
 
 Convert an iframe to an image
 
