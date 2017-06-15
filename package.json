@@ -1,7 +1,7 @@
 {
   "name": "iframe2image",
   "description": "Convert an iframe to an image",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/twolfson/iframe2image",
   "author": {
     "name": "Todd Wolfson",

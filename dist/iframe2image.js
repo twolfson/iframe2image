@@ -1,6 +1,6 @@
-/*! iframe2image - v0.1.0 - 2012-11-18
+/*! iframe2image - v0.2.1 - 2017-06-14
 * https://github.com/twolfson/iframe2image
-* Copyright (c) 2012 Todd Wolfson; Licensed MIT */
+* Copyright (c) 2017 Todd Wolfson; Licensed MIT */
 
 (function(exports) {
 
@@ -13,11 +13,29 @@
    * @callback arguments[1] Image element of rendered content
    */
   function iframe2image(params, cb) {
+    // Attempt to access our window
     var iframe = params.iframe || params;
+    if (!iframe.contentWindow) {
+      throw new Error('Unable to access iframe contents. Please verify it\'s hosted on the same domain');
+    }
 
-    // TODO: Detect if iframe has already loaded
-    iframe.onload = function () {
+    // If our iframe has already loaded, then run `next` immediately
+    var contentDocument = iframe.contentWindow.document;
+    if (contentDocument && contentDocument.readyState === 'complete') {
+      next();
+    // Otherwise, wait for our document to load
+    } else {
+      function handleLoad(evt) { // jshint ignore:line
+        iframe.removeEventListener('load', handleLoad);
+        next();
+      }
+      iframe.addEventListener('load', handleLoad);
+    }
+
+    // When our page is loaded
+    function next() {
       // Grab the body of the element
+      // DEV: We don't reuse `contentDocument` as the iframe may have switched pages while loading
       var iframeBody = iframe.contentWindow.document.body;
 
       // Obtain the dimensions of the iframe
@@ -32,7 +50,7 @@
         // Callback with the image
         cb(null, img);
       }, iframeWidth, iframeHeight);
-    };
+    }
   }
   exports.iframe2image = iframe2image;
 
